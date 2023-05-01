@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: #f6f6f6;
+    font-family: 'Lora', serif;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    color: #333230;
+    margin: 5px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+mark{
+    padding: 5px;
+    background-color: #0e0f0f;
+    color: #e0e0e0;
+    border-radius: 3px;
+}
+button:focus {
+    outline: 0;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.btn-big {
+    padding: 0.7rem 1.3rem;
+    line-height: 1.3rem;
+}
+.tab {
+    margin-top: 3px;
+    display: grid;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.tab a {
+    background-color: inherit;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: 'PT Serif', serif;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+}
+.tab a:hover {
+    transition: .5s;
+    background-color: #ddd;
+}
+.tab a.selected-tab {
+    transition: .5s;
+    background-color: #ddd;
+    border-left: 2px solid #AAAA;
+}
+.blue{
+    color: #001cba;
+}
+.teal{
+    color: #39CCCC;
+}
+.red{
+    color: #de0000;
+}
+.green{
+    color: #00ba44;
+}
+.usage-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    padding: 3px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+    display: flex;
+}
+.usage-bar-fill {
+    height: 22px;
+    border-radius: 8px 0px 0px 8px;
+    transition: width 500ms ease-in-out;
+}
+.usage-bar .usage-bar-mark{
+    width: 5px;
+    height: 22px;
+    background: #6e6e6e;
+    border-radius: 0px 2px 2px 0px;
+}
+.modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+.modal-bg-active{
+    visibility: visible;
+    opacity: 1;
+}
+.modal-active{
+    display: block !important;
+}
+.modal{
+    position: relative;
+    background-color: white;
+    width: 30%;
+    padding: 15px;
+}
+.modal-add-contact, .modal-create-group, .modal-tariff, .modal-view-contact, .modal-view-group{
+    display: none;
+}
+.modal-close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.modal-close i{
+    font-size: 24px;
+    color: red;
+}
+.text-input {
+    padding: 0.7rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    color: #444;
+    line-height: 1.5rem;
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+}
+.check-box {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+.check-box:checked {
+    background: #083680;
+}
+.check-box:before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.check-box:checked:before {
+    left: 30px;
+}
+.msg {
+    width: 100%;
+    margin: 5px auto;
+    padding: 8px;
+    border-radius: 5px;
+}
+.success {
+    color: #2b2b2b;
+    background: #bcf5bc;
+    border: 1px solid #90de90;
+}
+.error {
+    color: #2b2b2b;
+    background: #ffa6a6;
+    border: 1px solid #ff2121;
+}
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    padding: 3px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+    display: flex;
+}
+.progress-bar-fill {
+    height: 22px;
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+}
+.progress-bar .mark {
+    width: 5px;
+    height: 22px;
+    background: #6e6e6e;
+    border-radius: 0px 2px 2px 0px;
+}
+header {
+    background: #fff;
+    height: 66px;
+}
+header * {
+    color: black;
+}
+header .logo {
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+}
+header .logo .logo-text {
+    margin: 8px 0px;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+header .logo .logo-text span {
+    color: #00cad1;
+}
+header ul {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+header ul li {
+    float: left;
+    position: relative;
+}
+header ul li ul {
+    position: absolute;
+    top: 65px;
+    right: 0px;
+    width: 150px;
+    display: none;
+    z-index: 1;
+}
+header ul li:hover ul {
+    display: block;
+}
+header ul li ul li {
+    width: 100%;
+}
+header ul li ul li a {
+    background: #f0f0f0;
+    padding: 10px;
+}
+header ul li ul li a:hover {
+    background: #ebebeb;
+}
+header ul li a {
+    display: block;
+    padding: 21px;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+header ul li a:hover {
+    color: #545454;
+    transition: 0.3s;
+}
+header ul li a i {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+header .menu-toggle {
+    display: none;
+}
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* CONTENT */
+
+.content {
+    width: 90%;
+    margin: 30px auto 30px;
+}
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 900px) {
+    header {
+        position: relative;
+    }
+    header ul {
+        width: 100%;
+        background: #f2f2f2;
+        max-height: 0px;
+        overflow: hidden;
+    }
+    .showing {
+        max-height: 100em;
+        transition: 1s;
+    }
+    header ul li {
+        width: 100%;
+        z-index: 999;
+    }
+    header ul li ul {
+        position: static;
+        display: block;
+        width: 100%;
+        background: #dedede;
+    }
+    header ul li ul li a {
+        padding-left: 50px;
+    }
+    header ul li ul li a:hover {
+        background: #ebebeb;
+    }
+    header .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 1.8em;
+    }
+    header .logo {
+        margin-left: 0.8em;
+    }
+    .content {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .btn {
+        margin: 20px;
+        border-radius: 0.25rem;
+        font-size: 0.9em;
+    }
+}
